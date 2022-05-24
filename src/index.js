@@ -13,4 +13,3 @@ server.use(endpoints);
 server.listen(process.env.PORT,
     () => console.log(`API online na porta ${process.env.PORT}`));
 
-    export default server;

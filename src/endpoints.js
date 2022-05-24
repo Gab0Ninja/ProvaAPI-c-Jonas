@@ -1,5 +1,5 @@
 
-import { dobro, somar } from './services.js'
+import { dobro, somar, cor } from './services.js'
 
 import { Router } from 'express'
 
@@ -47,4 +47,13 @@ server.post('/somar', (req, resp) => {
     }
 })
 
-export default server;
+server.get('/cor/:qualcor', (req, resp) =>{
+    const qual = String(req.params.qualcor)
+    const x = cor(qual);
+    resp.send({
+        cor: x
+    })
+ })
+
+
+    export default server;
