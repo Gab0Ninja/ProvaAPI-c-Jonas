@@ -1,5 +1,5 @@
 
-import { dobro, somar, cor } from './services.js'
+import { dobro, somar, cor, ingressocinema } from './services.js'
 
 import { Router } from 'express'
 
@@ -53,6 +53,21 @@ server.get('/cor/:qualcor', (req, resp) =>{
     resp.send({
         cor: x
     })
+ })
+
+ server.post('/ingresso', (req, resp) => {
+     try {
+         const {valores : {inteira,meia,semana,nacionalidade} } =req.query;
+  
+         const x = ingressocinema (inteira,meia,semana,nacionalidade)
+
+         resp.send({
+             ingressocinema:x
+         })
+
+     } catch (err) {
+         
+     }
  })
 
 

@@ -18,3 +18,11 @@ export function somar(a,b) {
      return msg;
     
 }
+
+
+export function ingressocinema(int,meia,semana,nacionalidade){    
+    let a = int * 28.50;
+    let b = meia *(14.25)/2;
+    let c= int * 5;
+    let d= int * (5/2);
+}
