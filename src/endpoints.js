@@ -143,5 +143,4 @@ server.get('/tabuada', (req, resp) => {
     }
 })
 
-
 export default server;

@@ -47,16 +47,18 @@ export function media(n1,n2,n3) {
 
 export function temperatura(temp){
     let a = false;
-    if(temp > 38){
+    if(temp => 38){
         a=true
     }
     return a;
 }
 
 export function tabuada (num){
-    let a = [11];
+    let a = [];
+    let b = 0;
     for (let i = 0; i<= 10; i++){
-        a[i] = num * 1;
+        a[b] = num * i;
+        b++
     }
     return a;
 }
