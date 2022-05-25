@@ -1,5 +1,5 @@
 
-import { dobro, somar, cor, ingressocinema } from './services.js'
+import { dobro, somar, cor, ingressocinema ,media } from './services.js'
 
 import { Router } from 'express'
 
@@ -67,6 +67,22 @@ server.post('/dia2/ingressocinema', (req, resp) => {
     } catch (err) {
         resp.status(404).send({
             error: err.message
+        })
+    }
+})
+
+server.post('/medianota',(req,resp) =>{
+    try {
+        const{n1,n2,n3} =req.body
+
+        const x=media(n1,n2,n3);
+
+        resp.send({
+            media:x
+        })
+    } catch (err) {
+        resp.status(404).send({
+            erro:err.message
         })
     }
 })
