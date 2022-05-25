@@ -18,7 +18,7 @@ server.get('/dobro/:numero', (req, resp) => {
 })
 
 
- server.get('/somar', (req, resp) => {
+server.get('/somar', (req, resp) => {
     const a = Number(req.query.a);
     const b = Number(req.query.b);
 
@@ -47,28 +47,28 @@ server.post('/somar', (req, resp) => {
     }
 })
 
-server.get('/cor/:qualcor', (req, resp) =>{
+server.get('/cor/:qualcor', (req, resp) => {
     const qual = String(req.params.qualcor)
     const x = cor(qual);
     resp.send({
         cor: x
     })
- })
+})
 
- server.post('/ingresso', (req, resp) => {
-     try {
-         const {valores : {inteira,meia,semana,nacionalidade} } =req.query;
-  
-         const x = ingressocinema (inteira,meia,semana,nacionalidade)
+server.post('/dia2/ingressocinema', (req, resp) => {
+    try {
+        const { inteira, meia, dia, nacionalidade } = req.body;
+        const x = cinema(inteira, meia, dia, nacionalidade)
 
-         resp.send({
-             ingressocinema:x
-         })
+        resp.send({
+            total: x
+        })
 
-     } catch (err) {
-         
-     }
- })
+    } catch (err) {
+        resp.status(404).send({
+            error: err.message
+        })
+    }
+})
 
-
-    export default server;
+export default server;

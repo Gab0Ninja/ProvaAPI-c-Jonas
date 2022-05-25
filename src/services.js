@@ -20,9 +20,22 @@ export function somar(a,b) {
 }
 
 
-export function ingressocinema(int,meia,semana,nacionalidade){    
-    let a = int * 28.50;
-    let b = meia *(14.25)/2;
-    let c= int * 5;
-    let d= int * (5/2);
+export function ingressocinema(inteira,meia,dia,nacionalidade){    
+    let a = inteira * 28.50;
+    let b = (meia *14.25) /2;
+    let c= inteira * 5;
+    let d= meia * 5;
+
+    if (nacionalidade == 'brasileira')
+    {
+        return c+d;
+    }
+    else if(dia == 'quarta')
+    {
+        return b;
+    }
+    else
+    {
+        return a+b;
+    }
 }
