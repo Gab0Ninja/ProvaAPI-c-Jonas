@@ -1,8 +1,5 @@
-
-import { dobro, somar, cor, ingressocinema ,media, temperatura } from './services.js'
-
+import { dobro, somar, corPrimaria, frequenciaCaracter, ingresso, maiorNumero } from './services.js'
 import { Router } from 'express'
-
 const server = Router();
 
 server.get('/dobro/:numero', (req, resp) => {
@@ -17,7 +14,6 @@ server.get('/dobro/:numero', (req, resp) => {
 
 })
 
-
 server.get('/somar', (req, resp) => {
     const a = Number(req.query.a);
     const b = Number(req.query.b);
@@ -28,7 +24,6 @@ server.get('/somar', (req, resp) => {
         soma: x
     })
 })
-
 
 server.post('/somar', (req, resp) => {
     try {
@@ -47,23 +42,27 @@ server.post('/somar', (req, resp) => {
     }
 })
 
-server.get('/cor/:qualcor', (req, resp) => {
-    const qual = String(req.params.qualcor)
-    const x = cor(qual);
-    resp.send({
-        cor: x
-    })
+server.get('/dia2/corprimaria/:cor', (req, resp) => {
+    try{
+        const { cor } = req.params;
+        const primaria = corPrimaria(cor);
+        resp.send ({
+            primaria: primaria
+        });
+    }   catch(err) {
+        resp.send({
+            erro: err.message
+        })
+    }
 })
 
 server.post('/dia2/ingressocinema', (req, resp) => {
     try {
-        const { inteira, meia, dia, nacionalidade } = req.body;
-        const x = cinema(inteira, meia, dia, nacionalidade)
-
+        const { qtdInteiras, qtdMeias, diaSemana, nacionalidade } = req.body;
+        const total = ingresso(qtdInteiras, qtdMeias, diaSemana, nacionalidade)
         resp.send({
-            total: x
-        })
-
+            total: total
+        });
     } catch (err) {
         resp.status(404).send({
             error: err.message
@@ -71,18 +70,30 @@ server.post('/dia2/ingressocinema', (req, resp) => {
     }
 })
 
-server.post('/media',(req,resp) =>{
-    try {
-        const{n1,n2,n3} =req.body
-
-        const x=media(n1,n2,n3);
-
+server.get('/dia2/freqcaractere/:texto/:caractere', (req, resp) => {
+    try{
+        const { texto, caractere } = req.params;
+        const freq = frequenciaCaracter(texto, caractere);
         resp.send({
-            media:x
-        })
+            freq: freq
+        });
     } catch (err) {
-        resp.status(404).send({
-            erro:err.message
+        resp.send({
+            erro: err.message
+        })
+    }
+})
+
+server.post('/dia2/maiorNumero', (req, resp) => {
+    try{
+        const numeros  = req.body;
+        const maior = maiorNumero(numeros);
+        resp.send({
+            maior: maior
+        });
+    } catch(err) {
+        resp.send({
+            erro: err.message
         })
     }
 })

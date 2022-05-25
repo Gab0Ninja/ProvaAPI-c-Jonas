@@ -1,59 +1,42 @@
 export function dobro(n) {
     return n * 2;
-    
+
 }
-export function somar(a,b) {
+export function somar(a, b) {
     return a + b;
-    
- }
 
- export function cor(a) {
-    let msg;
-    if (a=="azul" || a=="vermelho" || a=="amarelo" ) {
-        msg = true
-     }
-     else   {
-        msg = false
-     }
-     return msg;
-    
+}
+
+export function corPrimaria(cor) {
+    cor = cor.toLowerCase();
+    return cor == 'azul' || cor == 'amarelo' || cor == 'vermelho'
 }
 
 
-export function ingressocinema(inteira,meia,dia,nacionalidade){    
-    let a = inteira * 28.50;
-    let b = (meia *14.25) /2;
-    let c= inteira * 5;
-    let d= meia * 5;
+export function ingresso(qtdInteira, qtdMeia, diaSemana, nacionalidade) {
+    if (nacionalidade.toLowerCase() == 'brasileira')
+        return (qtdInteira + qtdMeia) * 5;
 
-    if (nacionalidade == 'brasileira')
-    {
-        return c+d;
-    }
-    else if(dia == 'quarta')
-    {
-        return b;
-    }
+    else if (diaSemana.toLowerCase() == 'quarta')
+        return (qtdInteira + qtdMeia) * 14.25;
+
     else
-    {
-        return a+b;
+        return (qtdInteira * 28.5) + (qtdMeia * 14.25);
+}
+
+export function frequenciaCaracter(texto, caractere) {
+    let qtd = 0
+    for (let letra of texto) {
+        if (letra == caractere)
+            qtd++
     }
+    return qtd;
 }
 
-export function media(n1,n2,n3) {
-    return (n1+n2+n3) /3;
-}
-
-export function temperatura(temp) {
-   let msg;
-
-   if (temp <=30 ) {
-       msg= true
-   }
-
-   else {
-       msg= false
-   }    
-   return msg; 
-
+export function maiorNumero(numeros) {
+    let maior = Number.MIN_VALUE;
+    for (let item of numeros) {
+        if (item > maior)            maior = item;
+    }
+    return maior;
 }
