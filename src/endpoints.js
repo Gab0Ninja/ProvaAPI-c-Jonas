@@ -71,7 +71,7 @@ server.post('/dia2/ingressocinema', (req, resp) => {
     }
 })
 
-server.post('/medianota',(req,resp) =>{
+server.post('/media',(req,resp) =>{
     try {
         const{n1,n2,n3} =req.body
 
