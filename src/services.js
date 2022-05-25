@@ -45,3 +45,18 @@ export function media(n1,n2,n3) {
     return (n1+n2+n3) /3;
 }
 
+export function temperatura(temp){
+    let a = false;
+    if(temp > 38){
+        a=true
+    }
+    return a;
+}
+
+export function tabuada (num){
+    let a = [11];
+    for (let i = 0; i<= 10; i++){
+        a[i] = num * 1;
+    }
+    return a;
+}

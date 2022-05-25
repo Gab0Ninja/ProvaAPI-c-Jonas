@@ -1,4 +1,4 @@
-import { dobro, somar, corPrimaria, frequenciaCaracter, ingresso, maiorNumero, media } from './services.js'
+import { dobro, somar, corPrimaria, frequenciaCaracter, ingresso, maiorNumero, media, temperatura, tabuada } from './services.js'
 import { Router } from 'express'
 const server = Router();
 
@@ -11,7 +11,7 @@ server.get('/dobro/:numero', (req, resp) => {
         dobro: d
     })
 
-    
+
 })
 
 server.get('/somar', (req, resp) => {
@@ -110,6 +110,35 @@ server.post('/media',(req,resp) =>{
     } catch (err) {
         resp.status(404).send({
             erro:err.message
+        })
+    }
+})
+
+server.get('/temperatura', (req, resp) => {
+    try{
+        const t = Number(req.query.t);
+        const x = temperatura(t);
+        resp.send({
+            febre: x
+        })
+    } catch(err){
+        resp.send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/tabuada', (req, resp) => {
+    try{
+    const a = Number(req.query.n);
+    const x = tabuada(a);
+
+    resp.send({
+        tabuada: x
+    })
+    }catch(err){
+        resp.send({
+            erro: err.message
         })
     }
 })
