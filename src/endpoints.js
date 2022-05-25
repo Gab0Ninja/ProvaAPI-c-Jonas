@@ -1,4 +1,4 @@
-import { dobro, somar, corPrimaria, frequenciaCaracter, ingresso, maiorNumero } from './services.js'
+import { dobro, somar, corPrimaria, frequenciaCaracter, ingresso, maiorNumero, media } from './services.js'
 import { Router } from 'express'
 const server = Router();
 
@@ -11,7 +11,7 @@ server.get('/dobro/:numero', (req, resp) => {
         dobro: d
     })
 
-
+    
 })
 
 server.get('/somar', (req, resp) => {
