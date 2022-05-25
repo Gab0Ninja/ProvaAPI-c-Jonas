@@ -1,5 +1,5 @@
 
-import { dobro, somar, cor, ingressocinema ,media } from './services.js'
+import { dobro, somar, cor, ingressocinema ,media, temperatura } from './services.js'
 
 import { Router } from 'express'
 
@@ -86,5 +86,6 @@ server.post('/media',(req,resp) =>{
         })
     }
 })
+
 
 export default server;

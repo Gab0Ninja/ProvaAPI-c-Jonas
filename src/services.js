@@ -43,3 +43,17 @@ export function ingressocinema(inteira,meia,dia,nacionalidade){
 export function media(n1,n2,n3) {
     return (n1+n2+n3) /3;
 }
+
+export function temperatura(temp) {
+   let msg;
+
+   if (temp <=30 ) {
+       msg= true
+   }
+
+   else {
+       msg= false
+   }    
+   return msg; 
+
+}
