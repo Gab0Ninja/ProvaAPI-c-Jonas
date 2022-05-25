@@ -98,5 +98,21 @@ server.post('/dia2/maiorNumero', (req, resp) => {
     }
 })
 
+server.post('/media',(req,resp) =>{
+    try {
+        const{n1,n2,n3} =req.body
+
+        const x=media(n1,n2,n3);
+
+        resp.send({
+            media:x
+        })
+    } catch (err) {
+        resp.status(404).send({
+            erro:err.message
+        })
+    }
+})
+
 
 export default server;
