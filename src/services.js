@@ -9,7 +9,7 @@ export function somar(a, b) {
 
 export function corPrimaria(cor) {
     cor = cor.toLowerCase();
-    return cor == 'azul' || cor == 'amarelo' || cor == 'vermelho'
+    return cor == 'azul' || cor == 'amarelo' || cor == 'vermelho' || cor == 'blue' || cor == 'yellow' || cor == 'red'
 }
 
 
